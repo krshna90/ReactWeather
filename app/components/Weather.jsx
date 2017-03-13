@@ -55,7 +55,7 @@ var Weather = React.createClass({
       return <p>Processing your request...</p>
     }else if(isError){
       return <ErrorModel message = {errObj.message} />//<h1>{errObj.cod}{errObj.message} <br />Please try again</h1>;
-    }else if(city && temp){
+    }else if(city && (temp!==undefined && temp!==null)){
       return <WeatherMessage city={city} temp={temp}/>
     }
   }
