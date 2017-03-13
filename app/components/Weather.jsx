@@ -34,6 +34,20 @@ var Weather = React.createClass({
     });
     console.log(this.state.city);
   },
+  componentDidMount : function(){
+    var location = this.props.location.query.location;
+    if(location && location.length >0){
+      this.getLocation(location);
+      window.location.hash = "#/";
+    }
+  },
+  componentWillReceiveProps : function(newProps){
+    var location = newProps.location.query.location;
+    if(location && location.length >0){
+      this.getLocation(location);
+      window.location.hash = "#/";
+    }
+  },
   render : function(){
     var {city, temp, isLoading, isError, errObj } = this.state;
     function template(){
