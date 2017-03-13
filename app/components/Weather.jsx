@@ -5,16 +5,17 @@ var openWeatherMap = require("../api/openWeatherMap");
 var Weather = React.createClass({
   getInitialState : function(){
     return {
-      city : "Delhi",
-      temp : "48",
+      city : null,
+      temp : null,
       isLoading : false,
       errObj : {}
     }
   },
   getLocation : function(city){
-    //alert(city);
     var VM = this;
-    this.setState({isLoading : true});
+    this.setState({
+      isLoading : true
+    });
     openWeatherMap.getTemp(city).then(function(data){
       VM.setState({
         city : city,
@@ -24,22 +25,16 @@ var Weather = React.createClass({
       });
     },
     function(data){
-      //alert(errorMsg);
       VM.setState({
         isLoading : false,
         isError : true,
         errObj :  data
       });
     });
-    // this.setState({
-    //   city : city
-    // });
     console.log(this.state.city);
   },
   render : function(){
     var {city, temp, isLoading, isError, errObj } = this.state;
-    // var city = this.state.city;
-    // var temp = this.state.temp;
     function template(){
     if(isLoading){
       return <h1>Processing your request...</h1>
@@ -52,7 +47,7 @@ var Weather = React.createClass({
 
     return (
       <div>
-        <h1>This Weather Component</h1>
+        <h1 className="text-center">Get Weather</h1>
         <WeatherForm onSearchLocation = {this.getLocation}/>
         {template()}
       </div>

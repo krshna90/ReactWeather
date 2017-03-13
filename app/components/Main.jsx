@@ -5,11 +5,13 @@ var Main = React.createClass({
     return (
       <div>
         <Nav />
-        <h1>This Main Component</h1>
-        {this.props.children}  
+        <div className="row">
+          <div className="columns medium-6 large-4 small-centered">
+            {this.props.children}
+          </div>
+        </div>
       </div>
-
-    );
+      );
   }
 });
 module.exports = Main;
