@@ -1,0 +1,10 @@
+$space-large: 2.5rem;
+$purple-color: #555;
+.page-title {
+  margin-top: $space-large;
+  margin-bottom: $space-large;
+  color: $purple-color;
+}
+input [type="search"] {
+  box-shadow: none !important;
+}
