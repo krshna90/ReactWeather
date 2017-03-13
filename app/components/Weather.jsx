@@ -38,7 +38,7 @@ var Weather = React.createClass({
     var {city, temp, isLoading, isError, errObj } = this.state;
     function template(){
     if(isLoading){
-      return <h1>Processing your request...</h1>
+      return <p>Processing your request...</p>
     }else if(isError){
       return <ErrorModel message = {errObj.message} />//<h1>{errObj.cod}{errObj.message} <br />Please try again</h1>;
     }else if(city && temp){
@@ -48,7 +48,7 @@ var Weather = React.createClass({
 
     return (
       <div>
-        <h1 className="text-center">Get Weather</h1>
+        <h1 className="text-center page-title">Get Weather</h1>
         <WeatherForm onSearchLocation = {this.getLocation}/>
         {template()}
       </div>

@@ -22,7 +22,7 @@ var Nav = React.createClass({
         </nav>
         <div className="top-bar-right">
           <ul className="menu">
-            <li><input type="search" placeholder="Search" /></li>
+            <li><input type="search" placeholder="Search weather by city" /></li>
             <li><button type="button" className="button">Search</button></li>
           </ul>
         </div>
