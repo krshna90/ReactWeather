@@ -2,6 +2,7 @@ var React = require("react");
 var WeatherForm = require("./WeatherForm");
 var WeatherMessage= require("./WeatherMessage");
 var openWeatherMap = require("../api/openWeatherMap");
+var ErrorModel = require("./ErrorModel");
 var Weather = React.createClass({
   getInitialState : function(){
     return {
@@ -39,7 +40,7 @@ var Weather = React.createClass({
     if(isLoading){
       return <h1>Processing your request...</h1>
     }else if(isError){
-      return <h1>{errObj.cod}{errObj.message} <br />Please try again</h1>;
+      return <ErrorModel message = {errObj.message} />//<h1>{errObj.cod}{errObj.message} <br />Please try again</h1>;
     }else if(city && temp){
       return <WeatherMessage city={city} temp={temp}/>
     }
