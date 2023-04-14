@@ -9,6 +9,7 @@ app.use(function(req, res, next){
   // }else{
   //   res.redirect("http://" + req.hostname + req.url)
   // }
+  // test
   if(req.secure){
     res.redirect("http://" + req.hostname + req.url);
   }else {
